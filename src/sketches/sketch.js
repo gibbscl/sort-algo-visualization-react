@@ -4,7 +4,7 @@ var arrayHelper = require('../helpers/array.js');
 
 export default function sketch(p){
     let canvas;
-    let canvasWidth = 1400;
+    let canvasWidth = 1250;
     let canvasHeight = 700;
     let currentArray = arrayHelper.createArray(500);
     
@@ -15,14 +15,14 @@ export default function sketch(p){
     }
 
     p.draw = () => {
-      
+
       for(let i=0; i<currentArray.length; i++){
           let barWidth = canvasWidth / currentArray.length;
           let barHeight = (currentArray[i] / currentArray.length) * (0.9 * canvasHeight);
           let x = (barWidth * i);
           let y = canvasHeight - barHeight;
           p.rect(x, y, barWidth, barHeight);
-          p.stroke('black');
+          p.stroke('gray');
           p.strokeWeight(1)
           p.fill('white')
       }  
