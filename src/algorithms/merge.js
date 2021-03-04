@@ -1,51 +1,59 @@
-
 //Function to merge two sorted arrays
-function merge(array, l, m, r){
-    let n1 = m - l + 1;
-    let n2 = r - m;
-    let arrayL = new Array(n1);
-    let arrayR = new Array(n2);
+function merge(array, left, mid, right){
+    var n1 = mid - left + 1;
+    var n2 = right - mid;
+    var leftArray = [];
+    var rightArray = [];
     for(let i=0;i<n1;i++){
-        arrayL[i] = array[l + i]
+        leftArray.push(array[left + i]);
     }
     for(let j=0;j<n2;j++){
-        arrayR[j] = array[m + 1 + j];
+        rightArray.push(array[mid + 1 + j]);
     }
-    let i=0;
-    let j=0;
-    let k=l;
+    var i=0;
+    var j=0;
+    var k=left;
     while(i<n1 && j<n2){
-        if (arrayL[i] <= arrayR[j]){
-            array[k] = arrayL[i];
+        if (leftArray[i] <= rightArray[j]){
+            array[k] = leftArray[i];
             i++;
         }
         else{
-            array[k] = arrayR[j];
+            array[k] = rightArray[j];
             j++;
         }
+        k++;
     }
     while(i<n1){
-        array[k] = L[i];
+        array[k] = leftArray[i];
         i++;
         k++;
     }
     while(j<n2){
-        array[k] = arrayR[j];
+        array[k] = rightArray[j];
         j++;
         k++;
     }
+
+    return array;
 }
 
 
 //Recursively called mergesort function
-function mergeSort(array, l, r){
-    if(l>=r){
+function mergeSort(array, left, right){
+    if(left>=right){
         return;
     }
-    let m = l + (r-1)/2;
-    mergeSort(array, l, m);
-    mergeSort(array, m+1, r);
-    merge(array, l, m, r);
+    var mid = Math.floor((left + (right-1))/2);
+
+    mergeSort(array, left, mid);
+    mergeSort(array, mid+1, right);
+    merge(array, left, mid, right);
 }
+
+
+
+module.exports = {mergeSort}
+
 
 

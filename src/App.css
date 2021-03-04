@@ -11,24 +11,5 @@
   color: white;
 }
 
-.Grid{
-  align-self: center;
-}
-
-.Buttons{
-  align-items: left;
-  flex-direction: row;
-  color: #020708;
-  padding-top: 0px
-}
-
-.Slider{
-  font-size: 5px
-}
-
-.Array{
-  font-size: 15px
-}
-
 
 

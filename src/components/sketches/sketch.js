@@ -1,11 +1,9 @@
-var arrayHelper = require('../helpers/array.js');
-
-
+var arrayHelper = require('../../helpers/array.js');
 
 export default function sketch(p){
     let canvas;
-    let canvasWidth = 1250;
-    let canvasHeight = 700;
+    let canvasWidth = 1450;
+    let canvasHeight = 620;
     let currentArray = arrayHelper.createArray(500);
     
 
