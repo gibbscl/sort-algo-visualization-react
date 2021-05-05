@@ -1,8 +1,9 @@
 import P5Wrapper from 'react-p5-wrapper';
 import Sketch from '../Sketches/Sketch.js';
-import React, { useEffect } from 'react';
-import './Grid.css'
+import React, { useEffect, useState } from 'react';
+import './Grid.css';
 
+var windowHelper = require('../../helpers/window.js');
 
 export default function Grid(props){
 
@@ -12,6 +13,7 @@ export default function Grid(props){
     }
   });
 
+  let { height, width } = windowHelper.useWindowDimensions();
     return (
         <div class='Grid'>
           <P5Wrapper 
@@ -20,6 +22,8 @@ export default function Grid(props){
           arraySize={props.arraySize}
           updateSteps={props.updateSteps}
           update={props.update}
+          windowHeight={0.8*height}
+          windowWidth={0.95*width}
           ></P5Wrapper>
         </div>
     );

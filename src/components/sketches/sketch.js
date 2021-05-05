@@ -1,21 +1,24 @@
 var arrayHelper = require('../../helpers/array.js');
+var windowHelper = require('../../helpers/window.js');
 
 
 export default function sketch(p){
     let canvas;
-    let canvasWidth = 1450;
-    let canvasHeight = 620;
-    //let currentArray = props.currentArray;
-    //let currentArray = p.currentArray;
-    let currentArray = arrayHelper.createArray(500);
-    
+    let canvasWidth = 0.95*windowHelper.getWindowDimensions().width;
+    let canvasHeight = 0.8*windowHelper.getWindowDimensions().height;
+    let currentArray = arrayHelper.createArray(250);
 
+  
     p.setup = () => {
       canvas = p.createCanvas(canvasWidth, canvasHeight);
       p.noStroke();
     }
 
     p.draw = () => {
+      //Recreates canvas based on resized canvas width and height
+      canvas = p.createCanvas(canvasWidth, canvasHeight);
+      p.noStroke();
+
       p.background('black');
       for(let i=0; i<currentArray.length; i++){
           let barWidth = canvasWidth / currentArray.length;
@@ -32,6 +35,8 @@ export default function sketch(p){
     p.myCustomRedrawAccordingToNewPropsHandler = (props) => {
       if(canvas){ //Make sure the canvas has been created
        currentArray = props.currentArray;
+       canvasWidth = props.windowWidth;
+       canvasHeight  = props.windowHeight;
       }
     }
 }

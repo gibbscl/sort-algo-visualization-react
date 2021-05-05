@@ -12,12 +12,13 @@ import insertionSort from './algorithms/insertion.js';
 var arrayHelper = require('./helpers/array.js');
 
 class App extends Component {
+  
   constructor(props){
     super();
     this.state = {
-      currentArray: arrayHelper.createRandomArray(500), 
+      currentArray: arrayHelper.createRandomArray(250), 
       algo: 'Select Algorithm', 
-      arraySize: 500, 
+      arraySize: 250, 
       updateSteps: [],
       flag: false
     };
@@ -35,7 +36,6 @@ class App extends Component {
     this.heapSortHandler = this.heapSortHandler.bind(this);
     
   }
-
 
   //Shuffles array to new random array
   shuffleArray(){

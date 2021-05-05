@@ -46,8 +46,8 @@ export default function Optionbar(props){
             value={props.arraySize}
             change={event => props.setArraySize(event.target.value)}
             //slideStop={this.changeValue}
-            step={100}
-            max={500}
+            step={1}
+            max={250}
             min={100}
             orientation="horizontal"
             reversed={false}
